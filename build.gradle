@@ -1,0 +1,48 @@
+plugins {
+    id 'org.springframework.boot' version '2.1.5.RELEASE'
+    id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'it.crowd'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    
+}
+
+
+dependencies {
+    /*Spring Boot*/
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+
+    /*Swagger*/
+    compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+    compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
+    compile group: 'io.springfox', name: 'springfox-swagger-common', version: '2.9.2'
+    compile group: 'io.swagger', name: 'swagger-models', version: '1.5.21'
+    compile group: 'io.swagger', name: 'swagger-annotations', version: '1.5.21'
+
+    /*MySQL*/
+    runtimeOnly 'mysql:mysql-connector-java'
+
+    /*Hibernate*/
+    compile 'org.hibernate:hibernate-core:5.3.10.Final'
+ 
+    /*Lombok*/
+    compileOnly 'org.projectlombok:lombok:1.18.8'
+    annotationProcessor 'org.projectlombok:lombok:1.18.8'
+    
+    /*Tests*/
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
+
+}
